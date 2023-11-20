@@ -17,7 +17,7 @@ namespace DataAccessLayer.Concrete.Configuration
 
             builder.HasKey(c => c.Id);
 
-            builder.Property(c => c.Id).HasColumnName("CustomerId");
+            builder.Property(c => c.Id).HasColumnName("Id");
             builder.Property(c => c.FirstName).HasColumnName("FirstName").IsRequired().HasMaxLength(50);
             builder.Property(c => c.LastName).HasColumnName("LastName").IsRequired().HasMaxLength(50);
             builder.Property(c => c.Email).HasColumnName("Email").IsRequired().HasMaxLength(100);

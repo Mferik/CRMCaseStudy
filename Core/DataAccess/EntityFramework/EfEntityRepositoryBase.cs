@@ -10,8 +10,8 @@ using System.Threading.Tasks;
 namespace Core.DataAccess.EntityFramework
 {
     public class EfEntityRepositoryBase<TEntity, TContext> : IEntityRepository<TEntity>
- where TEntity : class, IEntity, new()
- where TContext : DbContext, new()
+        where TEntity : class, IEntity, new()
+        where TContext : DbContext, new()
     {
         public TEntity Get(Expression<Func<TEntity, bool>> filter)
         {
@@ -55,6 +55,14 @@ namespace Core.DataAccess.EntityFramework
             {
                 context.Entry(entity).State = EntityState.Deleted;
                 context.SaveChanges();
+            }
+        }
+
+        public TEntity GetById(int id)
+        {
+            using (TContext context = new TContext())
+            {
+                return context.Set<TEntity>().Find(id);
             }
         }
     }

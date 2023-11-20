@@ -17,7 +17,7 @@ namespace DataAccessLayer.Concrete.Configuration
 
             builder.HasKey(o => o.Id);
 
-            builder.Property(o => o.Id).HasColumnName("OfferId");
+            builder.Property(o => o.Id).HasColumnName("Id");
             builder.Property(o => o.Price).HasColumnName("Price").IsRequired();
             builder.Property(o => o.Date).HasColumnName("Date").IsRequired();
             builder.Property(o => o.CustomerId).HasColumnName("CustomerId").IsRequired();
